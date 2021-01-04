@@ -1,0 +1,4 @@
+config:
+# gcp:GitCommit: DO NOT COMMIT TO VERSION CONTROL 
+  gcp:RoleScope: organization
+  gcp:orgid: "000000000000"

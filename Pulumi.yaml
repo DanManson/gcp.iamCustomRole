@@ -1,0 +1,3 @@
+name: gcp.iamCustomRole
+runtime: dotnet
+description: Create gcp.iamCustomRoles with project or organizational scope.

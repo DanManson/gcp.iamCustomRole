@@ -1,0 +1,21 @@
+config:
+  gcp:GitCommit: 'dbf86a4fc'
+  gcp:RoleScope: 'project'
+  gcp:project: 'dmanson-test'
+  gcp:RoleDescription: |
+      'Role for the reOptimize service to read details from the Google Cloud environment.'
+  gcp:RoleId: 'reOptimize.service'
+  gcp:RoleTitle: 'reOptimize Service'
+  gcp:RolePermissions:
+    - bigquery.datasets.get
+    - bigquery.jobs.get
+    - bigquery.jobs.list
+    - bigquery.jobs.listAll
+    - bigquery.tables.get
+    - bigquery.tables.list
+    - iam.roles.get
+    - resourcemanager.folders.get
+    - resourcemanager.folders.list
+    - resourcemanager.organizations.get
+    - resourcemanager.projects.get
+    - resourcemanager.projects.list

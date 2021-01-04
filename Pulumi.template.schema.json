@@ -1,0 +1,50 @@
+{
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "title": "JSON Schema Gcp.IamCustomRole",
+
+   "additionalProperties": false,
+   "description": "yaml validation",
+   "type": "object",
+   "properties": {
+      "config": {
+         "type": "object",
+         
+         "gcp:GitCommit": {
+            "type": "string",
+            "description": "The git commit id that includes the pulumi code and configuration yaml. "
+         },
+         "gcp:project": {
+            "type": "string",
+            "description": "Required when RolsScope = project. The project that the service accoun   will be created in. Defaults to the provider project configuration."
+         },
+         "gcp:RoleScope": {
+            "type": "string",
+            "description": "Organization or Project level scoping",
+            "default": "project"
+         },
+         "gcp:RoleDescription": {
+            "type": "string",
+            "description": "A human-readable description for the role."
+         },
+         "gcp:RoleId": {
+            "type": "string",
+            "description": "The unique string identifier for the custom role."
+         },
+         "gcp:OrgId": {
+            "type": "string",
+            "description": "Required when RoleScope != project. The numeric ID of the organization in which you want to create a custom role."
+         },
+         "gcp:RolePermissions": {
+            "type": "array",
+            "description": "The names of the permissions this role grants when bound in an IAM policy. At least one permission must be specified.",
+            "items": {
+               "type": "string"
+            }
+         },
+         "gcp:RoleTitle": {
+            "type": "string",
+            "description": "A human-readable title for the role."
+         }
+      }
+   }
+}

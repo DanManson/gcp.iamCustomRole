@@ -1,0 +1,9 @@
+config:
+  gcp:
+    GitCommit:
+    project:
+    RoleDescription:
+    RoleId:
+    RoleTitle:
+    RolePermissions:
+    RoleScope:
