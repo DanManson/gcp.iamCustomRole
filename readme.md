@@ -2,7 +2,7 @@
 
 # Provision Gcp.IamCustomRole using Pulumi/C#
 
-This example provisions a Google Cloud Platform (GCP) [Google IAM Custom Role](https://cloud.google.com/iam/docs/understanding-custom-roles) using CSharp.
+This project provisions a Google Cloud Platform (GCP) [Google IAM Custom Role](https://cloud.google.com/iam/docs/understanding-custom-roles) using CSharp.
 
 ## Deploying the App
 
