@@ -1,6 +1,5 @@
 config:
   gcp:
-    GitCommit:
     project:
     RoleDescription:
     RoleId:

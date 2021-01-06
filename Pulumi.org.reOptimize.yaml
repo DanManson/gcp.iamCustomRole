@@ -1,7 +1,6 @@
 config:
-  gcp:GitCommit: 'dbf86a4fc'
   gcp:RoleScope: 'project'
-  gcp:project: 'dmanson-test'
+  gcp:project: '[PROJECT_ID_HERE]'
   gcp:RoleDescription: |
       'Role for the reOptimize service to read details from the Google Cloud environment.'
   gcp:RoleId: 'reOptimize.service'

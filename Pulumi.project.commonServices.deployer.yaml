@@ -1,9 +1,9 @@
 config:
-  gcp:RoleScope: 'org'
-  gcp:project: 'PROJECT_ID_HERE'
+  gcp:RoleScope: 'project'
+  gcp:project: '[PROJECT_ID_HERE]'
   gcp:RoleDescription: |
     'Common Services Deployer role'
-  gcp:RoleId: 'commonServices.deployer'
+  gcp:RoleId: 'commonServices.deployer_v1'
   gcp:RoleTitle: 'Common Services Deployer'
   gcp:RolePermissions:
     - appengine.applications.get
@@ -27,8 +27,6 @@ config:
     - cloudfunctions.functions.list
     - cloudfunctions.functions.update
     - cloudfunctions.operations.get
-    - cloudfunctions.functions.sourceCodeGet
-    - cloudfunctions.functions.sourceCodeSet
     - cloudscheduler.jobs.create
     - cloudscheduler.jobs.delete
     - cloudscheduler.jobs.list

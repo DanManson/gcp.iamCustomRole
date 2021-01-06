@@ -8,11 +8,7 @@
    "properties": {
       "config": {
          "type": "object",
-         
-         "gcp:GitCommit": {
-            "type": "string",
-            "description": "The git commit id that includes the pulumi code and configuration yaml. "
-         },
+
          "gcp:project": {
             "type": "string",
             "description": "Required when RolsScope = project. The project that the service accoun   will be created in. Defaults to the provider project configuration."

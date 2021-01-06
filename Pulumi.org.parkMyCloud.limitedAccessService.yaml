@@ -1,6 +1,5 @@
 config:
-  gcp:GitCommit:  'dbf86a4fc'
-  gcp:project: 'dmanson-test'
+  gcp:project: '[PROJECT_ID_HERE]'
   gcp:RoleScope: 'project'
   gcp:RoleDescription: |
     This role provides the essential permissions for the ParkMyCloud Service to manage your GCP Cloud.

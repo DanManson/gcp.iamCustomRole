@@ -18,33 +18,52 @@ class gcpIamCustomRole : Stack
       this.roleId = gcpConfig.Require("RoleId");
       this.roleTitle = gcpConfig.Require("RoleTitle");
       this.rolePermissions = gcpConfig.GetObject<string[]>("RolePermissions");
-      this.roleDescription = $"{gcpConfig.Require("RoleDescription")} {System.Environment.NewLine} {DateTime.UtcNow.ToString("s")} - {gcpConfig.Require("GitCommit")}";
+      this.roleDescription = $"{gcpConfig.Require("RoleDescription")}";
       ProvisionRole();
    }
 
    private void ProvisionRole()
    {
-      if (gcpConfig.Require("RoleScope").ToLower() == "project") 
+      switch (gcpConfig.Require("RoleScope").ToLower())
       {
-         var projIamCustomRole = new Projects.IAMCustomRole("projIamCustomRole", new Projects.IAMCustomRoleArgs
-         {
-            Description = this.roleDescription,
-            Permissions = this.rolePermissions,
-            Project = gcpConfig.Require("project"),
-            RoleId = this.roleId,
-            Title = this.roleTitle,
-         });
-      } 
-      else
-      {
-         var orgIamCustomRole = new Organizations.IAMCustomRole("orgIamCustomRole", new Organizations.IAMCustomRoleArgs
-         {
-            Description = this.roleDescription,
-            Permissions = this.rolePermissions,
-            OrgId = gcpConfig.Require("orgid"),
-            RoleId = this.roleId,
-            Title = this.roleTitle,
-         });
+         case "project":
+            {
+               var projIamCustomRole = new Projects.IAMCustomRole("projIamCustomRole",
+                  new Projects.IAMCustomRoleArgs
+                  {
+                     Description = roleDescription,
+                     Permissions = rolePermissions,
+                     Project = gcpConfig.Require("project"),
+                     RoleId = roleId,
+                     Title = roleTitle,
+                  }
+               /// To import an existing role uncomment the following block, update PROJECT_ID AND ROLE_ID then 
+               /// run Pulumi Up, details, verify property alignment for import, run Pulumi Up, yes, recomment this block
+               // ,new CustomResourceOptions {
+               //    ImportId = "projects/[PROJECT_ID]/roles/[ROLE_ID]"
+               // }
+               );
+               break;
+            }
+
+         default:
+            {
+               var orgIamCustomRole = new Organizations.IAMCustomRole("orgIamCustomRole",
+               new Organizations.IAMCustomRoleArgs
+               {
+                  Description = roleDescription,
+                  Permissions = rolePermissions,
+                  OrgId = gcpConfig.Require("orgid"),
+                  RoleId = roleId,
+                  Title = roleTitle,
+               }
+               /// To import an existing role uncomment the following block, update ORG_ID AND ROLE_ID
+               // ,new CustomResourceOptions {
+               //     ImportId = "organizations/[ORG_ID]/roles/[ROLE_ID]"
+               // }
+               );
+               break;
+            }
       }
    }
 }
